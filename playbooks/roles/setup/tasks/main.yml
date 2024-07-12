@@ -1,2 +1,22 @@
 ---
-# tasks file for setup
+- name: create ansible user
+  user:
+    name: ansible
+    groups: root
+    create_home: true
+    home: /home/ansible
+  
+- name: add ssh key for ansible
+  tags: always
+  authorized_key:
+    user: ansible
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINfMKddeTgMWO36c+3aiXrC8dNmKXIC6ubPYyCLgQlBr ansible"
+      
+- name: add sudoers file for ansible
+  tags: always
+  copy:
+    src: sudoer_ansible
+    dest: /etc/sudoers.d/ansible
+    owner: root
+    group: root
+    mode: 0440

@@ -1,13 +1,11 @@
 ---
 - name: Running apt to uninstall nginx
-  become: true
   apt: 
     name: nginx
     state: absent
     purge: true
 
 - name: Clean up ...
-  become: true
   file: 
     path: "{{ item }}"
     state: absent

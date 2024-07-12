@@ -1,0 +1,7 @@
+---
+- name: Setting up managed nodes ...
+  hosts: all:!localhost
+  remote_user: ubuntu
+  become: true
+  roles:
+    - setup
