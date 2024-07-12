@@ -1,23 +1,10 @@
 ---
-- name: Install Nginx
-  apt:
-    name: nginx
-    update_cache: true
-    state: latest
+- name: Install nginx
+  import_tasks: install_nginx.yml
+  tags:
+    - install_nginx
 
-- name: Copy Nginx configuration file
-  template:
-    src: nginx.conf.j2
-    dest: /etc/nginx/nginx.conf
-  notify: Restart Nginx
-
-- name: Create index file
-  copy:
-    src: index.html
-    dest: /var/www/html/index.html
-
-- name: Ensure Nginx is started and enabled
-  service:
-    name: nginx
-    state: started
-    enabled: true
+- name: Uninstall nginx
+  import_tasks: uninstall_nginx.yml
+  tags:
+    - uninstall_nginx
