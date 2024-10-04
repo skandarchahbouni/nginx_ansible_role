@@ -1,6 +1,6 @@
 # Nginx Ansible Role 📦🛠️
 
-This project provides an Ansible role for installing and configuring **Nginx** on various hosts. By using this role, you can automate the deployment of Nginx, ensuring consistent configuration across multiple servers. 
+This project provides an Ansible role for installing and configuring **Nginx** on various hosts. 
 
 ## Overview
 
